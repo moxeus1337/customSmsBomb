@@ -8,7 +8,7 @@ class ProxyManager():
 
     PROXY_LIST_FILE_PATH = "./proxies.txt"
     PROXIES = {
-        "proxyscrape.com": "proxy_scrape_com"
+        "pxscrape": "proxy_scrape_com"
     }
 
     @classmethod
