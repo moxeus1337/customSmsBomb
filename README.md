@@ -59,6 +59,7 @@ python main.py -p 5555555555 -m mail@gmail.com -x proxies.txt:http -th 4 -c 100
 # Eğer -th parametresi girilmesse her telefona 1 thread düşer.
 # Eğer -c parametresi girilmesse sonsuza dek gönderir.
 
+# Gelişmiş kullanım
 python main.py -p victims.txt -m victims.txt -x proxies:http -th 4 -c victims.txt
 # Bu kod 'victims.txt' de bulunan tüm numarala dosyada her numara için ayrıca belirtilen sayı kadar eşzamanlı olarak mesaj gönderir.
 
