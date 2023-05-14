@@ -151,6 +151,7 @@ API bilgileri __2__ formatta tutulur.
 - API'lerin bilgilerinin tutulduğu __[params](api/params.json)__ dosyasında en altta bulunan `customMethods` içindeki `custom` değerinin içine tanımlanırlar.
 - Fonksiyon isminin sonuna `_custom` eklenmesi gereklidir. 
 - `methodName` değerine fonksiyon ismi `_custom` olmadan yazılmalıdır.
+- `payload` değeri boş bir obje olmalıdır.
 
 **API Fonksiyonu**
 - __[CustomPayloads](api/payloads_manager/custom_payloads.py)__ sınıfında tanımlanır.
